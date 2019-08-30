@@ -1,10 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import baseReducer from './modules/reducers/base.reducer';
+import pizzaReducer from './modules/reducers/pizza.reducer';
+import orderReducer from './modules/reducers/order.reducer';
+import adminReducer from './modules/reducers/admin.reducer';
+
+const store = createStore(
+    combineReducers({
+        baseReducer,
+        pizzaReducer,
+        orderReducer,
+        adminReducer
+    }),
+    applyMiddleware(logger)
+)
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

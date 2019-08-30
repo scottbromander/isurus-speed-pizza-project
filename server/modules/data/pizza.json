@@ -1,0 +1,16 @@
+{
+    "pizzas" : [
+        {
+            "name" : "pepperoni",
+            "price" : 7.50
+        },
+        {
+            "name" : "cheese",
+            "price" : 6.50
+        },
+        {
+            "name" : "sausage",
+            "price" : 8.00
+        }
+    ]
+}
